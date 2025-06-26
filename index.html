@@ -4,6 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Simple Flip the coin.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -134,14 +138,14 @@
 
     <div class="coin-container">
       <div class="coin-content" id="coin-head">
-        <img class="coin-image lauch-coin" src="/resources/heads.svg" />
-        <img class="coin-shadow" src="/resources/shadow.svg" />
-        <p class="coin-label">Head</p>
+        <img class="coin-image lauch-coin" alt="Coin heads" src="/resources/heads.svg" />
+        <img class="coin-shadow" alt="Coin shadow" src="/resources/shadow.svg" />
+        <p class="coin-label">Heads</p>
       </div>
       <div class="coin-content hidden" id="coin-tail">
-        <img class="coin-image lauch-coin" src="/resources/tails.svg" />
-        <img class="coin-shadow" src="/resources/shadow.svg" />
-        <p class="coin-label">Tail</p>
+        <img class="coin-image lauch-coin" alt="Coin tails" src="/resources/tails.svg" />
+        <img class="coin-shadow" alt="Coin shadow" src="/resources/shadow.svg" />
+        <p class="coin-label">Tails</p>
       </div>
     </div>
 
@@ -153,7 +157,7 @@
     <a href="https://www.devchallenges.io?ref=challenge" target="_blank">devChallenges.io</a>.
   </div>
 
-  <script>
+  <script defer>
     const flipRunners = document.querySelectorAll('.lauch-coin')
 
 
