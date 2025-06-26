@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="resources/favicon.ico" type="image/x-icon" sizes="96x96" />
+
+  <title>Flip the coin | devChallenges.io</title>
+
+  <!--You are welcome to delete these styles or modify them in your own stylesheet -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      font-family: 'Kanit', sans-serif;
+      font-weight: 600;
+      font-style: normal;
+      background-color: #404A65;
+      color: #ECEDF0;
+    }
+
+    button {
+      font-family: 'Kanit', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .author-info {
+      font-size: 14px;
+      text-align: center;
+      margin-top: 16px;
+      color: rgb(55, 65, 81);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 10px;
+      color: #ECEDF0;
+    }
+
+    .author-info a {
+      text-decoration: none;
+      color: #ECEDF0;
+    }
+
+    /* START - Custom CSS */
+
+    .game-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .title {
+      text-shadow: 2px 2px 0px #35383f;
+      -webkit-text-stroke-width: 5px;
+      -webkit-text-stroke-color: #35383f;
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .description {
+      font-size: 1.5rem;
+      margin-bottom: 15px
+    }
+
+    .coin-container {
+      padding: 50px;
+    }
+
+    .coin-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .coin-image {
+      cursor: pointer;
+      margin-bottom: 40px;
+    }
+
+    .coin-shadow {
+      width: 66%;
+      margin: auto;
+    }
+
+    .coin-label {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 30px;
+    }
+
+    .button-primary {
+      background-color: #1F6FB0;
+      color: #ECEDF0;
+      text-transform: uppercase;
+      font-size: 1.25rem;
+      padding: 5px 40px;
+      border-radius: 4px;
+      box-shadow: 0px 4px 0px 0px #23649b;
+      border: 0;
+    }
+
+    .button-primary:hover {
+      background-color: #23649b;
+      box-shadow: 0px 4px 0px 0px #1F6FB0;
+    }
+
+
+    /* END - Custom CSS */
+  </style>
+</head>
+
+<body>
+  <div class="game-container">
+    <h1 class="title">Flip the coin</h1>
+    <p class="description">Press the coin or the button to flip the coin</p>
+
+    <div class="coin-container">
+      <div class="coin-content" id="coin-head">
+        <img class="coin-image lauch-coin" src="/resources/heads.svg" />
+        <img class="coin-shadow" src="/resources/shadow.svg" />
+        <p class="coin-label">Head</p>
+      </div>
+      <div class="coin-content hidden" id="coin-tail">
+        <img class="coin-image lauch-coin" src="/resources/tails.svg" />
+        <img class="coin-shadow" src="/resources/shadow.svg" />
+        <p class="coin-label">Tail</p>
+      </div>
+    </div>
+
+    <button class="button-primary lauch-coin" id="flip-coin-button">Random</button>
+  </div>
+
+  <div class="author-info">
+    Coded by <a href="https://github.com/kevinfasquel">Kévin Fasquel</a> | Challenge by
+    <a href="https://www.devchallenges.io?ref=challenge" target="_blank">devChallenges.io</a>.
+  </div>
+
+  <script>
+    const flipRunners = document.querySelectorAll('.lauch-coin')
+
+
+    flipRunners.forEach(runner => {
+      runner.addEventListener("click", (event) => {
+        let result = Math.random() < 0.5 ? 0 : 1
+        console.log(result)
+        switch (result) {
+          case 0:
+            document.querySelector('#coin-head').classList.remove('hidden')
+            document.querySelector('#coin-tail').classList.add('hidden')
+            break
+          case 1:
+            document.querySelector('#coin-tail').classList.remove('hidden')
+            document.querySelector('#coin-head').classList.add('hidden')
+            break
+        }
+      })
+    });
+
+  </script>
+</body>
+
+
+</html>
